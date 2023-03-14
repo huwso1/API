@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">huesos2011</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5433/API</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <mapping class="Entidades.Permisos" package="Entidades" resource="/Entidades.Permisos.hbm.xml"/>
+        <mapping class="Roles.Permisos" package="Entidades" resource="/Roles.Permisos.hbm.xml"/>
+        <mapping class="Usuarios.Permisos" package="Entidades" resource="/Usuarios.Permisos.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

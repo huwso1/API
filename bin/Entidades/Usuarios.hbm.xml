@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14/03/2023, 4:56:39 p. m. by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Entidades.Usuarios" optimistic-lock="none" schema="public" table="usuarios">
+        <id name="idUsuario" type="int">
+            <column name="id_usuario"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="nombre" type="string">
+            <column length="15" name="nombre" not-null="true"/>
+        </property>
+        <property name="contrasena" type="string">
+            <column length="15" name="contrasena" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="roleses" table="usuarios_rol">
+            <key>
+                <column name="id_usuario" not-null="true"/>
+            </key>
+            <many-to-many entity-name="Entidades.Roles">
+                <column name="id_roles" not-null="true"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

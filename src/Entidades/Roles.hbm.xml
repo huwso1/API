@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14/03/2023, 4:56:39 p. m. by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Entidades.Roles" optimistic-lock="none" schema="public" table="roles">
+        <id name="idRoles" type="int">
+            <column name="id_roles"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="nombre" type="string">
+            <column length="15" name="nombre" not-null="true"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column length="200" name="descripcion" not-null="true"/>
+        </property>
+        <property name="attribute6" type="string">
+            <column length="10" name="attribute_6"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="permisoses" table="rol_permisos">
+            <key>
+                <column name="id_roles" not-null="true"/>
+            </key>
+            <many-to-many entity-name="Entidades.Permisos">
+                <column name="id_permisos" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set fetch="select" inverse="false" lazy="true" name="usuarioses" table="usuarios_rol">
+            <key>
+                <column name="id_roles" not-null="true"/>
+            </key>
+            <many-to-many entity-name="Entidades.Usuarios">
+                <column name="id_usuario" not-null="true"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
