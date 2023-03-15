@@ -3,6 +3,7 @@ package Entidades;
 
 import java.util.HashSet;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -22,7 +23,8 @@ public class Permisos implements java.io.Serializable {
 	private String nombre;
 @Column(name="descripcion")
 	private String descripcion;
-@Column(name="roleses")
+@Column
+@ElementCollection(targetClass=Integer.class)
 	private Set roleses = new HashSet(0);
 
 	public Permisos() {

@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -22,7 +23,8 @@ public class Usuarios implements java.io.Serializable {
 	private String nombre;
 	@Column(name="contrasena")
 	private String contrasena;
-	@Column(name="roleses")
+	@Column
+	@ElementCollection(targetClass=Integer.class)
 	private Set roleses = new HashSet(0);
 
 	public Usuarios() {
@@ -70,7 +72,7 @@ public class Usuarios implements java.io.Serializable {
 	}
 
 	public void setRoleses(Set roleses) {
-		this.roleses = roleses;
+		//this.roleses = roleses;
 	}
 
 }

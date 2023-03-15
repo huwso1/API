@@ -11,7 +11,7 @@
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.show_sql">true</property>
         <mapping class="Entidades.Permisos" package="Entidades" resource="/Entidades.Permisos.hbm.xml"/>
-        <mapping class="Roles.Permisos" package="Entidades" resource="/Roles.Permisos.hbm.xml"/>
-        <mapping class="Usuarios.Permisos" package="Entidades" resource="/Usuarios.Permisos.hbm.xml"/>
+        <mapping class="Entidades.Roles" package="Entidades" resource="/Entidades.Roles.hbm.xml"/>
+        <mapping class="Entidades.Usuarios" package="Entidades" resource="/Entidades.Usuarios.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
